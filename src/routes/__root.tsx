@@ -76,8 +76,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
-        <div className='p-2 w-full items-start justify-center flex gap-2 text-lg'>
+      <body className='bg-slate-800'>
+        <div className='p-2 w-full items-start justify-center bg-slate-800 flex gap-2 text-lg'>
           <Link
             to='/'
             activeProps={{
