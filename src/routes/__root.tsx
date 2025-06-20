@@ -76,7 +76,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className='w-full bg-gradient-to-br from-[#000000] via-[#000] to-[#181818] min-h-screen'>
+      <body className='w-full bg-gradient-to-br from-[#000000] via-[#000] to-[#181818]  min-h-screen'>
         {children}
         <TanStackRouterDevtools position='bottom-right' />
         <Scripts />

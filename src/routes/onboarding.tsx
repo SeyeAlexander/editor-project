@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useUserStore } from "~/stores/userStore";
-import type { AvatarOption } from "~/stores/userStore";
+import { avatarOptions } from "~/data/mockData";
 
 // Define form schema with Zod
 const onboardingFormSchema = z.object({
@@ -45,17 +45,6 @@ function OnboardingComponent() {
       navigate({ to: "/" });
     }
   }, [isAuthenticated, navigate]);
-
-  const avatarOptions = [
-    { name: "black", gradient: "from-gray-700 to-gray-900" },
-    { name: "blue", gradient: "from-blue-400 to-blue-600" },
-    { name: "purple", gradient: "from-purple-400 to-purple-700" },
-    { name: "green", gradient: "from-green-400 to-green-600" },
-    { name: "yellow", gradient: "from-yellow-300 to-amber-500" },
-    { name: "red", gradient: "from-red-400 to-red-600" },
-    { name: "pink", gradient: "from-pink-400 to-pink-600" },
-    { name: "orange", gradient: "from-orange-300 to-orange-500" },
-  ];
 
   // Initialize react-hook-form
   const form = useForm<OnboardingFormValues>({
@@ -188,7 +177,8 @@ function OnboardingComponent() {
 
               <Button
                 type='submit'
-                className='w-full bg-[#4F46E5]/70 hover:bg-[#4338CA] text-white h-12 rounded-xl'
+                variant='modal-primary'
+                size='modal-full'
                 disabled={!form.formState.isValid}
               >
                 Get Started

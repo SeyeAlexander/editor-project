@@ -26,7 +26,7 @@ export function AuthLayout({
 
         {/* Copyright - Bottom Left */}
         <div className='w-full flex items-start'>
-          <p className='text-gray-400 text-xs font-medium'>© Copyright Editor 2024</p>
+          <p className='text-gray-400 text-xs font-medium'>© Copyright Editor 2025</p>
         </div>
       </div>
 

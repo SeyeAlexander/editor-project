@@ -8,11 +8,13 @@ export type AvatarOption = {
 
 export type UserState = {
   displayName: string;
+  email: string;
   avatarOption: AvatarOption | null;
   workspaceName: string;
   isAuthenticated: boolean;
   isOnboarded: boolean;
   setDisplayName: (name: string) => void;
+  setEmail: (email: string) => void;
   setAvatarOption: (avatar: AvatarOption) => void;
   setWorkspaceName: (name: string) => void;
   setOnboarded: (value: boolean) => void;
@@ -24,12 +26,14 @@ export const useUserStore = create<UserState>()(
   persist(
     (set) => ({
       displayName: "",
+      email: "",
       avatarOption: null,
       workspaceName: "",
       isAuthenticated: false,
       isOnboarded: false,
 
       setDisplayName: (name) => set(() => ({ displayName: name })),
+      setEmail: (email) => set(() => ({ email: email })),
       setAvatarOption: (avatar) => set(() => ({ avatarOption: avatar })),
       setWorkspaceName: (name) => set(() => ({ workspaceName: name })),
       setOnboarded: (value) => set(() => ({ isOnboarded: value })),
@@ -37,6 +41,7 @@ export const useUserStore = create<UserState>()(
       reset: () =>
         set(() => ({
           displayName: "",
+          email: "",
           avatarOption: null,
           workspaceName: "",
           isAuthenticated: false,
