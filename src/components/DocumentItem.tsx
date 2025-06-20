@@ -51,24 +51,24 @@ export function DocumentItem({
             <MoreHorizontal className='h-4 w-4 text-gray-400' />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className='w-48 bg-[#191919] border-gray-700 p-1' align='end'>
+        <PopoverContent className='w-48 bg-[#191919] border-none mt-1.5 -mr-1.5 rounded-xl p-1' align='end'>
           <div className='space-y-1'>
             <Button variant='popover-item' size='popover' onClick={() => onShareDocument(doc.id)}>
-              <Share2 className='h-4 w-4 mr-2' />
+              <Share2 className='h-4 w-4' />
               Share
             </Button>
             <Button variant='popover-item' size='popover' onClick={() => onToggleFavorite(doc.id)}>
               <Star
-                className={cn("h-4 w-4 mr-2", doc.isFavorite && "fill-current text-yellow-500")}
+                className={cn("h-4 w-4", doc.isFavorite && "fill-current text-yellow-500")}
               />
-              {doc.isFavorite ? "Remove from favorites" : "Add to favorites"}
+              {doc.isFavorite ? "Remove favorite" : "Add favorite"}
             </Button>
             <Button
-              variant='popover-destructive'
+              variant='popover-item'
               size='popover'
               onClick={() => onDeleteDocument(doc.id)}
             >
-              <Trash2 className='h-4 w-4 mr-2' />
+              <Trash2 className='h-4 w-4' />
               Delete
             </Button>
           </div>

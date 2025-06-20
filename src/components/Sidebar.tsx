@@ -187,7 +187,7 @@ export function Sidebar({
                 variant='sidebar-item'
                 size='sidebar'
                 onClick={onCreateNewDocument}
-                className='mt-2 active:scale-95 transition-all duration-300 ease-in-out'
+                className='mt-2 h-10 active:scale-95 transition-all duration-300 ease-in-out'
               >
                 <Plus className='h-4 w-4 mr-2' />
                 Add New Document

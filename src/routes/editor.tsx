@@ -207,6 +207,7 @@ function EditorComponent() {
           onShareDocument={shareDocument}
           onCopyShareLink={copyShareLink}
           onChatToggle={setChatOpen}
+          renderCollaboratorAvatars={renderCollaboratorAvatars}
         />
 
         {/* Chat Panel */}

@@ -22,11 +22,11 @@ const buttonVariants = cva(
         "sidebar-icon": "p-2 hover:bg-[#191919] rounded-md transition-colors text-gray-400",
         "modal-primary": "bg-[#4F46E5]/70 hover:bg-[#4338CA] text-white rounded-xl active:scale-95",
         "modal-secondary":
-          "bg-transparent border-gray-600 text-gray-400 hover:bg-gray-800 rounded-xl active:scale-95",
+          " bg-[#191919] border-gray-600 text-white/80 hover:bg-[#313131] rounded-xl active:scale-95",
         "search-action":
           "bg-[#191919] hover:bg-[#313131] text-white rounded-2xl flex-col gap-1.5 active:scale-95",
         "chat-send": "bg-[#4F46E5]/60 hover:bg-[#4338CA] text-white rounded-xl active:scale-95",
-        "popover-item": "justify-start text-gray-300 hover:bg-[#313131] rounded transition-colors",
+        "popover-item": "justify-start text-gray-300 hover:bg-[#313131] rounded-lg transition-colors",
         "popover-destructive":
           "justify-start text-red-400 hover:bg-[#313131] rounded transition-colors",
       },

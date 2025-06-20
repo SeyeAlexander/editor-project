@@ -33,12 +33,12 @@ export function SharePopover({ documentId, onShareDocument, onCopyShareLink }: S
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className='w-80 bg-[#191919] border border-gray-700 shadow-lg text-white'
+        className='w-100 rounded-3xl -mr-11 bg-black shadow-lg text-white' //  bg-[#313131]
         align='end'
       >
         <div className='space-y-4'>
           <div>
-            <h3 className='font-semibold text-white mb-2'>Share this document</h3>
+            <h3 className='font-semibold text-lg text-white mb-2'>Share this document</h3>
             <p className='text-sm text-gray-400 mb-3'>Invite people to collaborate</p>
           </div>
 
@@ -47,7 +47,7 @@ export function SharePopover({ documentId, onShareDocument, onCopyShareLink }: S
               <label className='text-sm font-medium text-gray-300 mb-1 block'>
                 Invite by email
               </label>
-              <div className='flex space-x-2'>
+              <div className='flex items-center space-x-2 mt-2'>
                 <Input
                   type='email'
                   placeholder='Enter email address'
@@ -58,7 +58,7 @@ export function SharePopover({ documentId, onShareDocument, onCopyShareLink }: S
                 <Button
                   onClick={handleEmailShare}
                   variant='modal-primary'
-                  size='sm'
+                  size='lg'
                   disabled={!shareEmail}
                 >
                   <Mail className='h-4 w-4 mr-1' />
@@ -95,7 +95,7 @@ export function SharePopover({ documentId, onShareDocument, onCopyShareLink }: S
                   </button>
                 </div>
               </div>
-              <div className='flex space-x-2'>
+              <div className='flex items-center space-x-2'>
                 <Input
                   readOnly
                   value={
@@ -109,7 +109,7 @@ export function SharePopover({ documentId, onShareDocument, onCopyShareLink }: S
                 <Button
                   onClick={onCopyShareLink}
                   variant='modal-secondary'
-                  size='sm'
+                  size='lg'
                   disabled={!publicAccess}
                 >
                   <Copy className='h-4 w-4 mr-1' />

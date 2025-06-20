@@ -10,6 +10,7 @@ interface EditorContentProps {
   onShareDocument: (docId: string, email?: string) => void;
   onCopyShareLink: () => void;
   onChatToggle: (open: boolean) => void;
+  renderCollaboratorAvatars: (collaborators: string[]) => React.ReactNode;
 }
 
 export function EditorContent({
@@ -19,6 +20,7 @@ export function EditorContent({
   onShareDocument,
   onCopyShareLink,
   onChatToggle,
+  renderCollaboratorAvatars,
 }: EditorContentProps) {
   return (
     <div
@@ -53,12 +55,22 @@ export function EditorContent({
             />
           </button>
 
-          {/* Share Button */}
-          <SharePopover
-            documentId={currentDocument?.id || ""}
-            onShareDocument={onShareDocument}
-            onCopyShareLink={onCopyShareLink}
-          />
+          {/* Share Section with Collaborator Avatars */}
+          <div className='flex items-center space-x-2'>
+            {/* Collaborator Avatars */}
+            {currentDocument?.collaborators && currentDocument.collaborators.length > 0 && (
+              <div className='flex items-center'>
+                {renderCollaboratorAvatars(currentDocument.collaborators)}
+              </div>
+            )}
+            
+            {/* Share Button */}
+            <SharePopover
+              documentId={currentDocument?.id || ""}
+              onShareDocument={onShareDocument}
+              onCopyShareLink={onCopyShareLink}
+            />
+          </div>
 
           {/* Chat Toggle */}
           <button

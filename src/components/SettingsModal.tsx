@@ -78,8 +78,8 @@ export function SettingsModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className='bg-black border-gray-700 w-[600px] max-h-[80vh] rounded-3xl overflow-hidden flex flex-col'>
-        <DialogHeader className='px-6 pt-6 pb-0 flex-shrink-0'>
+      <DialogContent className='bg-black border-gray-700 w-[600px] max-h-[80vh] gap-0 rounded-3xl overflow-hidden flex flex-col'>
+        <DialogHeader className=' flex-shrink-0 pb-2'>
           <div className='flex items-center justify-between'>
             <DialogTitle className='text-white text-2xl font-bold'>Settings</DialogTitle>
             <button onClick={onClose} className='text-gray-400 hover:text-white transition-colors'>
@@ -91,7 +91,7 @@ export function SettingsModal({
           </DialogDescription>
         </DialogHeader>
 
-        <div className='flex-1 overflow-y-auto px-6 scrollbar-hide'>
+        <div className='flex-1 overflow-y-auto scrollbar-hide'>
           <Form {...settingsForm}>
             <form
               id='settings-form'
@@ -138,6 +138,144 @@ export function SettingsModal({
                 </div>
               </div>
 
+              
+
+              {/* Theme Settings */}
+              <div className='space-y-4'>
+                <h3 className='text-white text-lg font-semibold'>Theme</h3>
+
+                <FormField
+                  control={settingsForm.control}
+                  name='theme'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='grid grid-cols-3 gap-2'>
+                        {["grey", "focus", "light"].map((theme) => (
+                          <button
+                            key={theme}
+                            type='button'
+                            onClick={() => field.onChange(theme)}
+                            className={`p-3 rounded-xl border text-center transition-colors ${
+                              field.value === theme
+                                ? "border-blue-500 bg-blue-500/10 text-blue-400"
+                                : "border-gray-600 text-gray-400 hover:border-gray-500"
+                            }`}
+                          >
+                            <div className='capitalize'>{theme}</div>
+                          </button>
+                        ))}
+                      </div>
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Document Settings */}
+              <div className='space-y-4'>
+                <h3 className='text-white text-lg font-semibold'>Documents</h3>
+
+                <div className='space-y-3'>
+                  <FormField
+                    control={settingsForm.control}
+                    name='documentAutoSave'
+                    render={({ field }) => (
+                      <FormItem className='flex items-center justify-between'>
+                        <FormLabel className='text-white/80 text-sm'>Auto-save documents</FormLabel>
+                        <button
+                          type='button'
+                          onClick={() => field.onChange(!field.value)}
+                          className={`w-12 h-6 rounded-full transition-colors ${
+                            field.value ? "bg-blue-500" : "bg-gray-600"
+                          }`}
+                        >
+                          <div
+                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                              field.value ? "translate-x-6" : "translate-x-0.5"
+                            }`}
+                          />
+                        </button>
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={settingsForm.control}
+                    name='documentHistory'
+                    render={({ field }) => (
+                      <FormItem className='flex items-center justify-between'>
+                        <FormLabel className='text-white/80 text-sm'>Keep document history</FormLabel>
+                        <button
+                          type='button'
+                          onClick={() => field.onChange(!field.value)}
+                          className={`w-12 h-6 rounded-full transition-colors ${
+                            field.value ? "bg-blue-500" : "bg-gray-600"
+                          }`}
+                        >
+                          <div
+                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                              field.value ? "translate-x-6" : "translate-x-0.5"
+                            }`}
+                          />
+                        </button>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+
+              {/* Chat Settings */}
+              <div className='space-y-4'>
+                <h3 className='text-white text-lg font-semibold'>Chat</h3>
+
+                <div className='space-y-3'>
+                  <FormField
+                    control={settingsForm.control}
+                    name='chatNotifications'
+                    render={({ field }) => (
+                      <FormItem className='flex items-center justify-between'>
+                        <FormLabel className='text-white/80 text-sm'>Chat notifications</FormLabel>
+                        <button
+                          type='button'
+                          onClick={() => field.onChange(!field.value)}
+                          className={`w-12 h-6 rounded-full transition-colors ${
+                            field.value ? "bg-blue-500" : "bg-gray-600"
+                          }`}
+                        >
+                          <div
+                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                              field.value ? "translate-x-6" : "translate-x-0.5"
+                            }`}
+                          />
+                        </button>
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={settingsForm.control}
+                    name='chatSounds'
+                    render={({ field }) => (
+                      <FormItem className='flex items-center justify-between'>
+                        <FormLabel className='text-white/80 text-sm'>Chat sounds</FormLabel>
+                        <button
+                          type='button'
+                          onClick={() => field.onChange(!field.value)}
+                          className={`w-12 h-6 rounded-full transition-colors ${
+                            field.value ? "bg-blue-500" : "bg-gray-600"
+                          }`}
+                        >
+                          <div
+                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                              field.value ? "translate-x-6" : "translate-x-0.5"
+                            }`}
+                          />
+                        </button>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+
               {/* Account Settings */}
               <div className='space-y-4'>
                 <h3 className='text-white text-lg font-semibold'>Account</h3>
@@ -163,7 +301,7 @@ export function SettingsModal({
 
                   <div>
                     <p className='text-white text-sm mb-2'>Change Password</p>
-                    <div className='space-y-2'>
+                    <div className='space-y-3'>
                       <Input
                         type='password'
                         placeholder='New password'
@@ -183,7 +321,7 @@ export function SettingsModal({
                         variant='modal-secondary'
                         size='sm'
                         disabled={!newPassword || newPassword !== confirmPassword}
-                        className='mt-2'
+                        className='mt-2 py-4.5 px-4'
                       >
                         Update Password
                       </Button>
@@ -240,147 +378,11 @@ export function SettingsModal({
                   </div>
                 </div>
               </div>
-
-              {/* Theme Settings */}
-              <div className='space-y-4'>
-                <h3 className='text-white text-lg font-semibold'>Theme</h3>
-
-                <FormField
-                  control={settingsForm.control}
-                  name='theme'
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className='grid grid-cols-3 gap-2'>
-                        {["grey", "focus", "light"].map((theme) => (
-                          <button
-                            key={theme}
-                            type='button'
-                            onClick={() => field.onChange(theme)}
-                            className={`p-3 rounded-xl border text-center transition-colors ${
-                              field.value === theme
-                                ? "border-blue-500 bg-blue-500/10 text-blue-400"
-                                : "border-gray-600 text-gray-400 hover:border-gray-500"
-                            }`}
-                          >
-                            <div className='capitalize'>{theme}</div>
-                          </button>
-                        ))}
-                      </div>
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              {/* Document Settings */}
-              <div className='space-y-4'>
-                <h3 className='text-white text-lg font-semibold'>Documents</h3>
-
-                <div className='space-y-3'>
-                  <FormField
-                    control={settingsForm.control}
-                    name='documentAutoSave'
-                    render={({ field }) => (
-                      <FormItem className='flex items-center justify-between'>
-                        <FormLabel className='text-white text-sm'>Auto-save documents</FormLabel>
-                        <button
-                          type='button'
-                          onClick={() => field.onChange(!field.value)}
-                          className={`w-12 h-6 rounded-full transition-colors ${
-                            field.value ? "bg-blue-500" : "bg-gray-600"
-                          }`}
-                        >
-                          <div
-                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                              field.value ? "translate-x-6" : "translate-x-0.5"
-                            }`}
-                          />
-                        </button>
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={settingsForm.control}
-                    name='documentHistory'
-                    render={({ field }) => (
-                      <FormItem className='flex items-center justify-between'>
-                        <FormLabel className='text-white text-sm'>Keep document history</FormLabel>
-                        <button
-                          type='button'
-                          onClick={() => field.onChange(!field.value)}
-                          className={`w-12 h-6 rounded-full transition-colors ${
-                            field.value ? "bg-blue-500" : "bg-gray-600"
-                          }`}
-                        >
-                          <div
-                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                              field.value ? "translate-x-6" : "translate-x-0.5"
-                            }`}
-                          />
-                        </button>
-                      </FormItem>
-                    )}
-                  />
-                </div>
-              </div>
-
-              {/* Chat Settings */}
-              <div className='space-y-4'>
-                <h3 className='text-white text-lg font-semibold'>Chat</h3>
-
-                <div className='space-y-3'>
-                  <FormField
-                    control={settingsForm.control}
-                    name='chatNotifications'
-                    render={({ field }) => (
-                      <FormItem className='flex items-center justify-between'>
-                        <FormLabel className='text-white text-sm'>Chat notifications</FormLabel>
-                        <button
-                          type='button'
-                          onClick={() => field.onChange(!field.value)}
-                          className={`w-12 h-6 rounded-full transition-colors ${
-                            field.value ? "bg-blue-500" : "bg-gray-600"
-                          }`}
-                        >
-                          <div
-                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                              field.value ? "translate-x-6" : "translate-x-0.5"
-                            }`}
-                          />
-                        </button>
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={settingsForm.control}
-                    name='chatSounds'
-                    render={({ field }) => (
-                      <FormItem className='flex items-center justify-between'>
-                        <FormLabel className='text-white text-sm'>Chat sounds</FormLabel>
-                        <button
-                          type='button'
-                          onClick={() => field.onChange(!field.value)}
-                          className={`w-12 h-6 rounded-full transition-colors ${
-                            field.value ? "bg-blue-500" : "bg-gray-600"
-                          }`}
-                        >
-                          <div
-                            className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                              field.value ? "translate-x-6" : "translate-x-0.5"
-                            }`}
-                          />
-                        </button>
-                      </FormItem>
-                    )}
-                  />
-                </div>
-              </div>
             </form>
           </Form>
         </div>
 
-        <div className='flex space-x-3 px-6 pb-6 pt-4 border-t border-gray-700 flex-shrink-0'>
+        <div className='flex space-x-2 flex-shrink-0 pt-2'>
           <Button type='button' variant='modal-secondary' size='modal' onClick={onClose}>
             Cancel
           </Button>

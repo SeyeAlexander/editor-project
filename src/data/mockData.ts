@@ -55,6 +55,30 @@ export const initialRecentDocuments: RecentDocument[] = [
     collaborators: ["John Doe"],
   },
   {
+    id: "project-proposal-2",
+    name: "Project Proposal 2",
+    lastUpdated: "2 hours ago",
+    collaborators: ["John Doe"],
+  },
+  {
+    id: "project-proposal-3",
+    name: "Project Proposal 3",
+    lastUpdated: "2 hours ago",
+    collaborators: ["John Doe"],
+  },
+  {
+    id: "project-proposal-4",
+    name: "Project Proposal 4",
+    lastUpdated: "2 hours ago",
+    collaborators: ["John Doe"],
+  },
+  {
+    id: "project-proposal-5",
+    name: "Project Proposal 5",
+    lastUpdated: "2 hours ago",
+    collaborators: ["John Doe"],
+  },
+  {
     id: "quarterly-report",
     name: "Quarterly Report",
     lastUpdated: "1 day ago",

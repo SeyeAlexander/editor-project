@@ -53,14 +53,14 @@ export function SearchModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className='bg-black border-gray-700 p-2 w-[480px] max-h-[560px] overflow-hidden flex flex-col rounded-3xl'>
+      <DialogContent className='bg-black border-gray-700 p-2 w-[480px] max-h-[560px] gap-1.5 overflow-hidden flex flex-col rounded-3xl'>
         <DialogHeader className='sr-only'>
           <DialogTitle>Search Documents</DialogTitle>
           <DialogDescription>Search for documents or create new ones</DialogDescription>
         </DialogHeader>
 
         {/* Search Input */}
-        <div className='bg-[#191919] rounded-2xl p-3 mb-2'>
+        <div className='bg-[#191919] rounded-2xl p-3'>
           <div className='flex items-center'>
             <Search className='h-4 w-4 text-gray-400 mr-3' />
             <input
@@ -75,7 +75,7 @@ export function SearchModal({
         </div>
 
         {/* Action Buttons */}
-        <div className='grid grid-cols-2 gap-2 mb-6'>
+        <div className='grid grid-cols-2 gap-1.5 mb-1'>
           <Button variant='search-action' size='search' onClick={handleCreateDocument}>
             <div className='flex text-gray-400 gap-1 items-center'>
               <kbd className='bg-black px-2 py-[1px] rounded-md'>⌘</kbd>
@@ -124,7 +124,7 @@ export function SearchModal({
         </div>
 
         {/* Keyboard Shortcuts */}
-        <div className='bg-[#191919] rounded-2xl px-3 py-2 mt-4'>
+        <div className='bg-[#191919] rounded-2xl px-3 py-2 mt-1'>
           <div className='flex items-center justify-between text-gray-400'>
             <div className='flex items-center space-x-4'>
               <div className='flex items-center'>
