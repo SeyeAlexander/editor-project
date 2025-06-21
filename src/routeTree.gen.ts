@@ -78,6 +78,7 @@ const CustomScriptDotjsServerRoute = CustomScriptDotjsServerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '': typeof PathlessLayoutNestedLayoutRouteWithChildren
   '/editor': typeof EditorRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/editor/$id': typeof EditorIdRoute
@@ -87,6 +88,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '': typeof PathlessLayoutNestedLayoutRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/editor/$id': typeof EditorIdRoute
   '/editor': typeof EditorIndexRoute
@@ -109,6 +111,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | ''
     | '/editor'
     | '/onboarding'
     | '/editor/$id'
@@ -116,7 +119,14 @@ export interface FileRouteTypes {
     | '/route-a'
     | '/route-b'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/onboarding' | '/editor/$id' | '/editor' | '/route-a' | '/route-b'
+  to:
+    | '/'
+    | ''
+    | '/onboarding'
+    | '/editor/$id'
+    | '/editor'
+    | '/route-a'
+    | '/route-b'
   id:
     | '__root__'
     | '/'
